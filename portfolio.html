@@ -1,0 +1,498 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Professional portfolio of G Manikanta, diploma engineering student at SIR CR REDDY COLLEGE OF ENGINEERING.">
+  <title>G Manikanta | Student Portfolio</title>
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #6c5ce7;
+      --secondary: #00b894;
+      --dark: #111827;
+      --muted: #6b7280;
+      --surface: #ffffff;
+      --soft: #f5f7ff;
+    }
+
+    * { scroll-behavior: smooth; }
+    body {
+      font-family: "Inter", sans-serif;
+      color: var(--dark);
+      background: #fff;
+      overflow-x: hidden;
+    }
+
+    .navbar {
+      backdrop-filter: blur(12px);
+      background: rgba(255,255,255,.88) !important;
+      border-bottom: 1px solid rgba(17,24,39,.06);
+    }
+
+    .brand-mark {
+      width: 42px; height: 42px;
+      display: inline-flex;
+      align-items: center; justify-content: center;
+      border-radius: 12px;
+      color: white;
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--primary), #8e7dff);
+      box-shadow: 0 8px 24px rgba(108,92,231,.25);
+    }
+
+    .hero {
+      min-height: 100vh;
+      padding-top: 110px;
+      padding-bottom: 70px;
+      display: flex;
+      align-items: center;
+      background:
+        radial-gradient(circle at 90% 15%, rgba(108,92,231,.15), transparent 32%),
+        radial-gradient(circle at 5% 80%, rgba(0,184,148,.10), transparent 30%),
+        linear-gradient(180deg, #fbfbff 0%, #ffffff 100%);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: #eeecff;
+      color: var(--primary);
+      font-size: .82rem;
+      font-weight: 700;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.6rem, 8vw, 5.5rem);
+      line-height: .98;
+      letter-spacing: -0.055em;
+      font-weight: 800;
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, var(--primary), #00a884);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-copy {
+      color: var(--muted);
+      max-width: 650px;
+      font-size: 1.05rem;
+      line-height: 1.8;
+    }
+
+    .btn-main {
+      background: var(--dark);
+      color: white;
+      border: none;
+      padding: 13px 20px;
+      border-radius: 12px;
+      font-weight: 700;
+    }
+    .btn-main:hover { background: var(--primary); color: white; transform: translateY(-2px); }
+
+    .btn-outline {
+      border: 1px solid #d7d9e0;
+      padding: 12px 20px;
+      border-radius: 12px;
+      font-weight: 700;
+    }
+
+    .profile-wrap {
+      position: relative;
+      width: min(78vw, 390px);
+      aspect-ratio: 1;
+      margin: 0 auto;
+    }
+
+    .profile-ring {
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      background: conic-gradient(var(--primary), #a69cff, var(--secondary), var(--primary));
+      animation: spin 10s linear infinite;
+    }
+
+    .profile-card {
+      position: absolute;
+      inset: 7px;
+      border-radius: 50%;
+      background: white;
+      padding: 9px;
+      box-shadow: 0 30px 70px rgba(17,24,39,.16);
+      overflow: hidden;
+    }
+
+    .profile-card img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+      display: block;
+      background: #eef0f6;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    section { padding: 90px 0; }
+
+    .section-label {
+      color: var(--primary);
+      font-size: .8rem;
+      font-weight: 800;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+
+    .section-title {
+      font-weight: 800;
+      letter-spacing: -.035em;
+    }
+
+    .info-card, .project-card, .skill-card {
+      height: 100%;
+      border: 1px solid #eceef3;
+      border-radius: 20px;
+      background: white;
+      padding: 25px;
+      transition: .25s ease;
+      box-shadow: 0 8px 30px rgba(17,24,39,.04);
+    }
+
+    .info-card:hover, .project-card:hover, .skill-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 45px rgba(17,24,39,.10);
+      border-color: #ddd9ff;
+    }
+
+    .icon {
+      width: 48px; height: 48px;
+      border-radius: 14px;
+      display: inline-flex;
+      align-items: center; justify-content: center;
+      background: #f0efff;
+      color: var(--primary);
+      font-size: 1.25rem;
+      font-weight: 800;
+      margin-bottom: 18px;
+    }
+
+    .about {
+      background: var(--soft);
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 8px 12px;
+      margin: 4px;
+      border-radius: 999px;
+      background: #f0efff;
+      color: #5145b5;
+      font-size: .85rem;
+      font-weight: 700;
+    }
+
+    .social-link {
+      text-decoration: none;
+      color: var(--dark);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 16px;
+      border: 1px solid #e8eaf0;
+      border-radius: 14px;
+      transition: .2s;
+    }
+    .social-link:hover {
+      color: var(--primary);
+      background: #faf9ff;
+      transform: translateX(3px);
+    }
+
+    .contact {
+      background: linear-gradient(135deg, #121827, #252049);
+      color: white;
+    }
+
+    footer {
+      background: #0d1220;
+      color: #aeb5c4;
+      padding: 28px 0;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+    .reveal.show { opacity: 1; transform: none; }
+
+    @media (max-width: 767.98px) {
+      .hero { padding-top: 95px; text-align: center; }
+      .hero-copy { margin-left: auto; margin-right: auto; }
+      .hero-actions { justify-content: center; }
+      section { padding: 65px 0; }
+      .profile-wrap { width: min(70vw, 290px); margin-top: 40px; }
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center gap-2 fw-bold" href="#home">
+        <span class="brand-mark">GM</span>
+        <span>G Manikanta</span>
+      </a>
+
+      <button class="navbar-toggler border-0 shadow-none" type="button"
+              data-bs-toggle="collapse" data-bs-target="#mainNav"
+              aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+          <li class="nav-item"><a class="nav-link" href="#social">Social</a></li>
+          <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
+            <a class="btn btn-dark rounded-3 px-3" href="#contact">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container">
+        <div class="row align-items-center g-5">
+          <div class="col-lg-7 reveal">
+            <span class="eyebrow mb-3">Student • Developer • Learner</span>
+            <h1 class="mb-4">Hello, I'm <span class="gradient-text">G Manikanta.</span></h1>
+            <p class="hero-copy mb-4">
+              A passionate engineering student building creative projects and learning
+              modern web development. Welcome to my professional portfolio.
+            </p>
+            <div class="hero-actions d-flex flex-wrap gap-3">
+              <a href="#projects" class="btn btn-main">View My Projects</a>
+              <a href="#contact" class="btn btn-outline">Let's Connect</a>
+            </div>
+          </div>
+
+          <div class="col-lg-5 reveal">
+            <div class="profile-wrap">
+              <div class="profile-ring"></div>
+              <div class="profile-card">
+                <img src="data:image/jpeg;base64,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" alt="G Manikanta profile picture"
+                     onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg,#eeecff,#e8fff9)'">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="row mb-5 reveal">
+          <div class="col-lg-8">
+            <div class="section-label mb-2">About Me</div>
+            <h2 class="section-title display-6">A student with a passion for building things.</h2>
+          </div>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-md-4 reveal">
+            <div class="info-card">
+              <div class="icon">01</div>
+              <h5 class="fw-bold">Name</h5>
+              <p class="text-secondary mb-0">G Manikanta</p>
+            </div>
+          </div>
+          <div class="col-md-4 reveal">
+            <div class="info-card">
+              <div class="icon">02</div>
+              <h5 class="fw-bold">Registration No.</h5>
+              <p class="text-secondary mb-0">25B81A05B6</p>
+            </div>
+          </div>
+          <div class="col-md-4 reveal">
+            <div class="info-card">
+              <div class="icon">03</div>
+              <h5 class="fw-bold">College</h5>
+              <p class="text-secondary mb-0">SIR CR REDDY COLLEGE OF ENGINEERING</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="about" id="projects">
+      <div class="container">
+        <div class="row mb-5 reveal">
+          <div class="col-lg-8">
+            <div class="section-label mb-2">Projects</div>
+            <h2 class="section-title display-6">Things I've created.</h2>
+          </div>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-md-8 reveal">
+            <div class="project-card">
+              <div class="icon">🎂</div>
+              <h4 class="fw-bold">Birthday Project</h4>
+              <p class="text-secondary">
+                An interactive birthday wishes webpage designed with a beautiful theme,
+                surprise candle effects and a mobile-friendly experience.
+              </p>
+              <span class="tag">HTML</span>
+              <span class="tag">CSS</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">Bootstrap</span>
+            </div>
+          </div>
+          <div class="col-md-4 reveal">
+            <div class="project-card d-flex flex-column justify-content-center">
+              <div class="icon">✦</div>
+              <h5 class="fw-bold">More projects coming soon</h5>
+              <p class="text-secondary mb-0">
+                This portfolio can be updated as new projects are completed.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container">
+        <div class="row mb-5 reveal">
+          <div class="col-lg-8">
+            <div class="section-label mb-2">Skills</div>
+            <h2 class="section-title display-6">What I know.</h2>
+          </div>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-sm-6 col-lg-4 reveal">
+            <div class="skill-card">
+              <div class="icon">&lt;/&gt;</div>
+              <h5 class="fw-bold">C Programming</h5>
+              <p class="text-secondary mb-0">Well-known language: C</p>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 reveal">
+            <div class="skill-card">
+              <div class="icon">JS</div>
+              <h5 class="fw-bold">JavaScript</h5>
+              <p class="text-secondary mb-0">Interactive web experiences and UI behavior.</p>
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 reveal">
+            <div class="skill-card">
+              <div class="icon">B</div>
+              <h5 class="fw-bold">Bootstrap</h5>
+              <p class="text-secondary mb-0">Responsive, mobile-first web interfaces.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="about" id="social">
+      <div class="container">
+        <div class="row mb-5 reveal">
+          <div class="col-lg-8">
+            <div class="section-label mb-2">Social Media</div>
+            <h2 class="section-title display-6">Connect with me.</h2>
+          </div>
+        </div>
+
+        <div class="row g-3">
+          <div class="col-md-4 reveal">
+            <a class="social-link" href="https://instagram.com/" target="_blank" rel="noopener noreferrer">
+              <strong>Instagram</strong><span class="ms-auto">↗</span>
+            </a>
+          </div>
+          <div class="col-md-4 reveal">
+            <a class="social-link" href="https://facebook.com/" target="_blank" rel="noopener noreferrer">
+              <strong>Facebook</strong><span class="ms-auto">↗</span>
+            </a>
+          </div>
+          <div class="col-md-4 reveal">
+            <a class="social-link" href="https://wa.me/" target="_blank" rel="noopener noreferrer">
+              <strong>WhatsApp</strong><span class="ms-auto">↗</span>
+            </a>
+          </div>
+        </div>
+        <p class="small text-secondary mt-3 mb-0">
+          Replace the three social links above with your personal profile URLs.
+        </p>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="container text-center">
+        <div class="reveal">
+          <div class="section-label text-white-50 mb-2">Contact</div>
+          <h2 class="display-6 fw-bold mb-3">Let's build something together.</h2>
+          <p class="text-white-50 mx-auto mb-4" style="max-width:600px">
+            Thanks for visiting my portfolio. I’m always interested in learning,
+            creating and exploring new ideas.
+          </p>
+          <a href="mailto:your-email@example.com" class="btn btn-light btn-lg rounded-3 fw-bold">
+            Email Me
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container d-flex flex-column flex-md-row justify-content-between gap-2 text-center text-md-start">
+      <span>© <span id="year"></span> G Manikanta. All rights reserved.</span>
+      <span>Built with Bootstrap & JavaScript.</span>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    // Dynamic year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Reveal sections while scrolling
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+
+    // Close the mobile navbar after selecting a link
+    document.querySelectorAll("#mainNav .nav-link").forEach(link => {
+      link.addEventListener("click", () => {
+        const nav = document.getElementById("mainNav");
+        if (nav.classList.contains("show")) {
+          bootstrap.Collapse.getOrCreateInstance(nav).hide();
+        }
+      });
+    });
+  </script>
+</body>
+</html>
